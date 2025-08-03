@@ -69,8 +69,8 @@ My name is Siya Kamboj. I'm a rising 4th year CS student @ UCSD. Currently, I'm 
 
 
 
-### Languages & GitHub Usage
-![Metrics](github-metrics.svg)
+<!-- ### Languages & GitHub Usage
+![Metrics](github-metrics.svg) -->
 
 ### Contact
 <a href="https://www.linkedin.com/in/siya-kamboj-5b6334232/">
