@@ -1,7 +1,29 @@
+# name: Generate GitHub Metrics
+
+# on:
+#   schedule: [{ cron: "0 0 * * 0" }] # Runs every Sunday at midnight
+#   workflow_dispatch:
+
+# jobs:
+#   metrics:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: lowlighter/metrics@latest
+#         with:
+#           token: ${{ secrets.METRICS_TOKEN }}
+#           base: header, repositories
+#           plugin_languages: yes
+#           plugin_languages_ignored: html, css, cython
+#           plugin_languages_limit: 10
+#           plugin_languages_sections: most-used
+#           repositories_affiliations: owner, collaborator, organization_member
+#           repositories_forks: true
+
+
 name: Generate GitHub Metrics
 
 on:
-  schedule: [{ cron: "0 0 * * 0" }] # Runs every Sunday at midnight
+  schedule: [{ cron: "0 0 * * 0" }]  # Every Sunday
   workflow_dispatch:
 
 jobs:
@@ -10,11 +32,13 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.METRICS_TOKEN }}  # Still required for fetching private data
+          committer_token: ${{ secrets.METRICS_TOKEN }}  # NEW: Needed to commit back to repo!
           base: header, repositories
           plugin_languages: yes
           plugin_languages_ignored: html, css, cython
           plugin_languages_limit: 10
           plugin_languages_sections: most-used
           repositories_affiliations: owner, collaborator, organization_member
-          repositories_forks: true
+          filename: github-metrics.svg
+
